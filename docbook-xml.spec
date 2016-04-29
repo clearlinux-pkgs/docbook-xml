@@ -1,6 +1,6 @@
 Name     : docbook-xml
 Version  : 4.5
-Release  : 9
+Release  : 10
 URL      : http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 Source0  : http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 Source1  : http://www.docbook.org/sgml/4.5/docbook-4.5.zip
