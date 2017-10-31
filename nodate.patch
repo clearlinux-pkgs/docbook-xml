@@ -1,0 +1,27 @@
+--- docbook-xsl-1.79.0/manpages/other.xsl~	2014-11-20 23:00:06.000000000 +0000
++++ docbook-xsl-1.79.0/manpages/other.xsl	2017-10-31 15:09:55.330351876 +0000
+@@ -255,24 +255,6 @@
+     </xsl:call-template>
+     <xsl:text> &lt;http://docbook.sf.net/></xsl:text>
+     <xsl:text>&#10;</xsl:text>
+-    <xsl:text>.\"      Date: </xsl:text>
+-    <xsl:call-template name="replace.dots.and.dashes">
+-      <xsl:with-param name="content" select="$date"/>
+-    </xsl:call-template>
+-    <xsl:text>&#10;</xsl:text>
+-    <xsl:text>.\"    Manual: </xsl:text>
+-    <xsl:call-template name="replace.dots.and.dashes">
+-      <xsl:with-param name="content" select="$manual"/>
+-    </xsl:call-template>
+-    <xsl:text>&#10;</xsl:text>
+-    <xsl:text>.\"    Source: </xsl:text>
+-    <xsl:call-template name="replace.dots.and.dashes">
+-      <xsl:with-param name="content" select="$source"/>
+-    </xsl:call-template>
+-    <xsl:text>&#10;</xsl:text>
+-    <xsl:text>.\"  Language: </xsl:text>
+-    <xsl:call-template name="l10n.language.name"/>
+-    <xsl:text>&#10;</xsl:text>
+     <xsl:text>.\"</xsl:text>
+     <xsl:text>&#10;</xsl:text>
+   </xsl:template>
