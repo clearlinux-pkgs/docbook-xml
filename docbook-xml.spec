@@ -5,7 +5,7 @@ URL      : http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 Source0  : http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 Source1  : http://www.docbook.org/sgml/4.5/docbook-4.5.zip
 Source2  : http://downloads.sourceforge.net/docbook/docbook-xsl-1.79.0.tar.bz2
-Source3: nodate.patch
+Source3	 : nodate.patch
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
@@ -24,7 +24,7 @@ pushd docbook-sgml
 unzip %{SOURCE1}
 popd
 tar xf %{SOURCE2}
-cat %{Source3} | patch -p0
+cat %{SOURCE3} | patch -p0
 
 %install
 rm -rf %{buildroot}

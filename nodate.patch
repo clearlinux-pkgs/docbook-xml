@@ -25,16 +25,18 @@
      <xsl:text>.\"</xsl:text>
      <xsl:text>&#10;</xsl:text>
    </xsl:template>
---- docbook-xsl-1.79.0/manpages/other.xsl~	2017-10-31 15:09:55.000000000 +0000
-+++ docbook-xsl-1.79.0/manpages/other.xsl	2017-11-01 14:09:50.450233915 +0000
-@@ -227,10 +227,8 @@
- 
-   <xsl:template name="top.comment">
-     <xsl:param name="info"/>
--    <xsl:param name="date"/>
-     <xsl:param name="title"/>
-     <xsl:param name="manual"/>
--    <xsl:param name="source"/>
-     <xsl:param name="refname"/>
-     <xsl:text>.\"     Title: </xsl:text>
-     <xsl:call-template name="replace.dots.and.dashes">
+--- docbook-xsl-1.79.0/manpages/other.xsl~	2017-11-01 14:14:59.000000000 +0000
++++ docbook-xsl-1.79.0/manpages/other.xsl	2017-11-01 14:17:31.053562806 +0000
+@@ -321,12 +321,6 @@
+     <xsl:text>" "</xsl:text>
+     <xsl:value-of select="normalize-space($section)"/>
+     <xsl:text>" "</xsl:text>
+-    <xsl:if test="$man.th.extra1.suppress = 0">
+-      <!-- * there is no max.length for the extra1 field; the reason -->
+-      <!-- * is, it is almost always a date, and it is not possible -->
+-      <!-- * to truncate dates without changing their meaning -->
+-      <xsl:value-of select="normalize-space($extra1)"/>
+-    </xsl:if>
+     <xsl:text>" "</xsl:text>
+     <xsl:if test="$man.th.extra2.suppress = 0">
+       <xsl:choose>
