@@ -40,3 +40,24 @@
      <xsl:text>" "</xsl:text>
      <xsl:if test="$man.th.extra2.suppress = 0">
        <xsl:choose>
+--- docbook-xsl-1.79.0/manpages/other.xsl~	2017-11-01 14:50:12.000000000 +0000
++++ docbook-xsl-1.79.0/manpages/other.xsl	2017-11-01 14:50:41.108650994 +0000
+@@ -322,18 +322,6 @@
+     <xsl:value-of select="normalize-space($section)"/>
+     <xsl:text>" "</xsl:text>
+     <xsl:text>" "</xsl:text>
+-    <xsl:if test="$man.th.extra2.suppress = 0">
+-      <xsl:choose>
+-        <!-- * if max.length is non-empty, use value to truncate field -->
+-        <xsl:when test="$man.th.extra2.max.length != ''">
+-          <xsl:value-of
+-              select="normalize-space(substring($extra2, 1, $man.th.extra2.max.length))"/>
+-        </xsl:when>
+-        <xsl:otherwise>
+-          <xsl:value-of select="normalize-space($extra2)"/>
+-        </xsl:otherwise>
+-      </xsl:choose>
+-    </xsl:if>
+     <xsl:text>" "</xsl:text>
+     <xsl:if test="$man.th.extra3.suppress = 0">
+       <xsl:choose>
