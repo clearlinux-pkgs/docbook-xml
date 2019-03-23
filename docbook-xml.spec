@@ -4,12 +4,16 @@ Release  : 18
 URL      : http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 Source0  : http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 Source1  : http://www.docbook.org/sgml/4.5/docbook-4.5.zip
-Source2  : https://sourceforge.net/projects/docbook/files/docbook-xsl/1.79.0/docbook-xsl-1.79.0.tar.bz2
+Source2  : https://sourceforge.net/projects/docbook/files/docbook-xsl/1.79.1/docbook-xsl-1.79.1.tar.bz2
 Source3	 : nodate.patch
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
 BuildRequires: /usr/bin/xmlcatalog
+
+
+%define abi_package %{nil}
+%define debug_package %{nil}
 
 %description
 No detailed description available
@@ -33,15 +37,15 @@ install -v -d -m755 %{buildroot}/usr/share/defaults/xml
 cp -v -af docbook.cat *.dtd ent/ *.mod %{buildroot}/usr/share/xml/docbook/xml-dtd-4.5
 
 pushd docbook-xsl-*
-install -v -m755 -d %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.0
+install -v -m755 -d %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.1
 
 cp -v -R VERSION common eclipse epub extensions fo highlighting html \
          htmlhelp images javahelp lib manpages params profiling \
          roundtrip slides template tests tools webhelp website \
          xhtml xhtml-1_1 \
-    %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.0
+    %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.1
 
-ln -s VERSION %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.0/VERSION.xsl
+ln -s VERSION %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.1/VERSION.xsl
 
 popd
 
@@ -131,23 +135,23 @@ do
 done
 
 xmlcatalog --noout --add "rewriteSystem" \
-           "http://docbook.sourceforge.net/release/xsl/1.79.0" \
-           "/usr/share/xml/docbook/xsl-stylesheets-1.79.0" \
+           "http://docbook.sourceforge.net/release/xsl/1.79.1" \
+           "/usr/share/xml/docbook/xsl-stylesheets-1.79.1" \
     %{buildroot}/usr/share/defaults/xml/catalog
 
 xmlcatalog --noout --add "rewriteURI" \
-           "http://docbook.sourceforge.net/release/xsl/1.79.0" \
-           "/usr/share/xml/docbook/xsl-stylesheets-1.79.0" \
+           "http://docbook.sourceforge.net/release/xsl/1.79.1" \
+           "/usr/share/xml/docbook/xsl-stylesheets-1.79.1" \
     %{buildroot}/usr/share/defaults/xml/catalog
 
 xmlcatalog --noout --add "rewriteSystem" \
            "http://docbook.sourceforge.net/release/xsl/current" \
-           "/usr/share/xml/docbook/xsl-stylesheets-1.79.0" \
+           "/usr/share/xml/docbook/xsl-stylesheets-1.79.1" \
     %{buildroot}/usr/share/defaults/xml/catalog
 
 xmlcatalog --noout --add "rewriteURI" \
            "http://docbook.sourceforge.net/release/xsl/current" \
-           "/usr/share/xml/docbook/xsl-stylesheets-1.79.0" \
+           "/usr/share/xml/docbook/xsl-stylesheets-1.79.1" \
     %{buildroot}/usr/share/defaults/xml/catalog
 
 xmlcatalog --noout --add "delegatePublic" "-//OASIS//DTD DocBook XML" "file:///usr/share/defaults/xml/docbook" %{buildroot}/usr/share/defaults/xml/catalog
@@ -158,5 +162,6 @@ xmlcatalog --noout --add "delegatePublic" "-//OASIS//DTD DocBook XML" "file:///u
 /usr/share/defaults/xml/docbook
 /usr/share/defaults/sgml/catalog
 /usr/share/xml/docbook/xml-dtd-4.5/*
-/usr/share/xml/docbook/xsl-stylesheets-1.79.0/*
+/usr/share/xml/docbook/xsl-stylesheets-1.79.1/*
 /usr/share/sgml/docbook/sgml-dtd-4.5/*
+

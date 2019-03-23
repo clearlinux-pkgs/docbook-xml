@@ -1,5 +1,5 @@
---- docbook-xsl-1.79.0/manpages/other.xsl~	2014-11-20 23:00:06.000000000 +0000
-+++ docbook-xsl-1.79.0/manpages/other.xsl	2017-10-31 15:09:55.330351876 +0000
+--- docbook-xsl-1.79.1/manpages/other.xsl~	2014-11-20 23:00:06.000000000 +0000
++++ docbook-xsl-1.79.1/manpages/other.xsl	2017-10-31 15:09:55.330351876 +0000
 @@ -255,24 +255,6 @@
      </xsl:call-template>
      <xsl:text> &lt;http://docbook.sf.net/></xsl:text>
@@ -25,8 +25,8 @@
      <xsl:text>.\"</xsl:text>
      <xsl:text>&#10;</xsl:text>
    </xsl:template>
---- docbook-xsl-1.79.0/manpages/other.xsl~	2017-11-01 14:14:59.000000000 +0000
-+++ docbook-xsl-1.79.0/manpages/other.xsl	2017-11-01 14:17:31.053562806 +0000
+--- docbook-xsl-1.79.1/manpages/other.xsl~	2017-11-01 14:14:59.000000000 +0000
++++ docbook-xsl-1.79.1/manpages/other.xsl	2017-11-01 14:17:31.053562806 +0000
 @@ -321,12 +321,6 @@
      <xsl:text>" "</xsl:text>
      <xsl:value-of select="normalize-space($section)"/>
@@ -40,8 +40,8 @@
      <xsl:text>" "</xsl:text>
      <xsl:if test="$man.th.extra2.suppress = 0">
        <xsl:choose>
---- docbook-xsl-1.79.0/manpages/other.xsl~	2017-11-01 14:50:12.000000000 +0000
-+++ docbook-xsl-1.79.0/manpages/other.xsl	2017-11-01 14:50:41.108650994 +0000
+--- docbook-xsl-1.79.1/manpages/other.xsl~	2017-11-01 14:50:12.000000000 +0000
++++ docbook-xsl-1.79.1/manpages/other.xsl	2017-11-01 14:50:41.108650994 +0000
 @@ -322,18 +322,6 @@
      <xsl:value-of select="normalize-space($section)"/>
      <xsl:text>" "</xsl:text>
