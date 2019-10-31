@@ -1,6 +1,6 @@
 Name     : docbook-xml
 Version  : 4.5
-Release  : 22
+Release  : 23
 URL      : http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 Source0  : http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 Source1  : http://www.docbook.org/sgml/4.5/docbook-4.5.zip
@@ -39,9 +39,9 @@ cp -v -af docbook.cat *.dtd ent/ *.mod %{buildroot}/usr/share/xml/docbook/xml-dt
 pushd docbook-xsl-*
 install -v -m755 -d %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.2
 
-cp -v -R VERSION common eclipse epub extensions fo highlighting html \
+cp -v -R VERSION common eclipse epub fo highlighting html \
          htmlhelp images javahelp lib manpages params profiling \
-         roundtrip slides template tests tools webhelp website \
+         roundtrip slides template tests webhelp website \
          xhtml xhtml-1_1 \
     %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.2
 
