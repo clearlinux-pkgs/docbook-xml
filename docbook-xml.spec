@@ -36,17 +36,10 @@ install -v -d -m755 %{buildroot}/usr/share/xml/docbook/xml-dtd-4.5
 install -v -d -m755 %{buildroot}/usr/share/defaults/xml
 cp -v -af docbook.cat *.dtd ent/ *.mod %{buildroot}/usr/share/xml/docbook/xml-dtd-4.5
 
-pushd docbook-xsl-*
+pushd docbook-xsl-1.79.1
 install -v -m755 -d %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.1
-
-cp -v -R VERSION common eclipse epub fo highlighting html \
-         htmlhelp images javahelp lib manpages params profiling \
-         roundtrip slides template tests webhelp website \
-         xhtml xhtml-1_1 \
-    %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.1
-
-ln -s VERSION %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.1/VERSION.xsl
-
+rm -rf tools
+cp -vaf * %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.1/
 popd
 
 pushd docbook-sgml
@@ -152,6 +145,10 @@ xmlcatalog --noout --add "rewriteSystem" \
 xmlcatalog --noout --add "rewriteURI" \
            "http://docbook.sourceforge.net/release/xsl/current" \
            "/usr/share/xml/docbook/xsl-stylesheets-1.79.1" \
+    %{buildroot}/usr/share/defaults/xml/catalog
+
+xmlcatalog --noout --add "nextCatalog" unused \
+           "file:///usr/share/xml/docbook/xsl-stylesheets-1.79.1/catalog.xml" \
     %{buildroot}/usr/share/defaults/xml/catalog
 
 xmlcatalog --noout --add "delegatePublic" "-//OASIS//DTD DocBook XML" "file:///usr/share/defaults/xml/docbook" %{buildroot}/usr/share/defaults/xml/catalog
