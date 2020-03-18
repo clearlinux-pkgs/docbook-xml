@@ -1,11 +1,12 @@
 Name     : docbook-xml
 Version  : 4.5
-Release  : 24
+Release  : 25
 URL      : http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 Source0  : http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 Source1  : http://www.docbook.org/sgml/4.5/docbook-4.5.zip
 Source2  : https://sourceforge.net/projects/docbook/files/docbook-xsl/1.79.1/docbook-xsl-1.79.1.tar.bz2
-Source3	 : nodate.patch
+Source3  : https://sourceforge.net/projects/docbook/files/docbook-xsl-ns/1.79.1/docbook-xsl-ns-1.79.1.tar.bz2
+Patch1	 : nodate.patch
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
@@ -28,7 +29,8 @@ pushd docbook-sgml
 unzip %{SOURCE1}
 popd
 tar xf %{SOURCE2}
-cat %{SOURCE3} | patch -p0
+tar xf %{SOURCE3}
+cat %{PATCH1} | patch -p0
 
 %install
 rm -rf %{buildroot}
@@ -40,6 +42,12 @@ pushd docbook-xsl-1.79.1
 install -v -m755 -d %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.1
 rm -rf tools
 cp -vaf * %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-1.79.1/
+popd
+
+pushd docbook-xsl-ns-1.79.1
+install -v -m755 -d %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-ns-1.79.1
+rm -rf tools
+cp -vaf * %{buildroot}/usr/share/xml/docbook/xsl-stylesheets-ns-1.79.1/
 popd
 
 pushd docbook-sgml
@@ -151,6 +159,10 @@ xmlcatalog --noout --add "nextCatalog" unused \
            "file:///usr/share/xml/docbook/xsl-stylesheets-1.79.1/catalog.xml" \
     %{buildroot}/usr/share/defaults/xml/catalog
 
+xmlcatalog --noout --add "nextCatalog" unused \
+           "file:///usr/share/xml/docbook/xsl-stylesheets-ns-1.79.1/catalog.xml" \
+    %{buildroot}/usr/share/defaults/xml/catalog
+
 xmlcatalog --noout --add "delegatePublic" "-//OASIS//DTD DocBook XML" "file:///usr/share/defaults/xml/docbook" %{buildroot}/usr/share/defaults/xml/catalog
 
 %files
@@ -160,5 +172,5 @@ xmlcatalog --noout --add "delegatePublic" "-//OASIS//DTD DocBook XML" "file:///u
 /usr/share/defaults/sgml/catalog
 /usr/share/xml/docbook/xml-dtd-4.5/*
 /usr/share/xml/docbook/xsl-stylesheets-1.79.1/*
+/usr/share/xml/docbook/xsl-stylesheets-ns-1.79.1/*
 /usr/share/sgml/docbook/sgml-dtd-4.5/*
-
